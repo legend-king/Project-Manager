@@ -17,7 +17,7 @@ class Project(models.Model):
         return f"{self.title}"
     
     class Meta:
-        ordering = ('status', 'priority', '-due_date')
+        ordering = ('status', '-priority', '-due_date')
 
 class ProjectModule(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
@@ -32,7 +32,7 @@ class ProjectModule(models.Model):
 
     class Meta:
         unique_together = ('project', 'title')
-        ordering = ('completed', 'priority', '-due_date')
+        ordering = ('completed', '-priority', '-due_date')
 
     def __str__(self):
         return f"{self.project} - {self.title}"
