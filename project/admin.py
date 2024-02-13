@@ -16,7 +16,7 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ['title', 'description']
     list_editable = ['priority', 'status']
     list_filter = ['priority', 'status', 'due_date']
-    fields = ['title', 'description','priority', 'status', 'due_date']
+    fields = ['title', 'description','github_link','priority', 'status', 'due_date']
     inlines = [ProjectModuleInline]
 
     def save_model(self, request, obj, form, change):

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Project(models.Model):
     title = models.CharField(max_length=255, unique=True)
     description = models.TextField(null=True, blank=True)
+    github_link = models.URLField(null=True, blank=True)
     priority = models.IntegerField(choices=[(1, "Low"), (2,"Medium"), (3, "High")])
     status = models.IntegerField(choices=[(1,"Not yet Started"), (2, "Work In Progress"),
                                            (3, "Live but modules pending"), (4, "All Modules Completed")], default=1)
